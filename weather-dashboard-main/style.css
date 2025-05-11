@@ -8,7 +8,8 @@ body {
 }
 
 .header {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background-image: url(./Images/tree-736875_1920.jpg);
+  background-size: contain;
   color: white;
   padding: 1.5rem;
   text-align: center;
@@ -129,7 +130,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  
   backdrop-filter: blur(2px);
   z-index: 0;
 }
@@ -176,7 +176,7 @@ body {
 
 .forecast-card:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.412) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -191,7 +191,7 @@ body {
 
 .forecast-card img {
   width: 60px;
-  height: 60px;
+  height: 80px;
   margin: 0.8rem auto;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
@@ -211,32 +211,9 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .forecast-card {
-    min-height: 180px;
-    padding: 1.2rem;
-  }
-  
-  .forecast-temp {
-    font-size: 1.2rem;
-  }
-  
-  .forecast-date {
-    font-size: 1rem;
-  }
-}
 
-@media (max-width: 576px) {
-  .forecast-section {
-    margin: 1rem 0;
-    border-radius: 0;
-  }
-  
-  .forecast-card {
-    min-height: auto;
-  }
-}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -261,4 +238,136 @@ body {
   .current-weather {
       padding: 1rem;
   }
+}
+
+/* Add this media query for mobile responsiveness */
+@media (max-width: 768px) {
+  #map {
+    height: 300px;
+    margin: 15px auto;
+  }
+}
+
+
+/* Add zoom controls styling */
+.leaflet-control-zoom {
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+  border-radius: 5px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  width: 35px !important;
+  height: 35px !important;
+  line-height: 35px !important;
+  font-size: 1.4rem !important;
+  background: #fff !important;
+  color: #1e3c72 !important;
+  transition: all 0.3s ease;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #f8f9fa !important;
+}
+
+/* Keep all your original CSS and add these at the end */
+
+/* Favorites Section */
+.favorites-section {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  margin: 1rem;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.favorite-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-card:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.remove-favorite {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 5px;
+}
+
+.mini-weather {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.mini-weather img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Map Size Adjustment */
+#map {
+  height: 600px;
+  width: 90%;
+  margin: 15px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 0;
+}
+/* Add these styles */
+.favorite-button-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.add-favorite-btn {
+  background: #1e3c72;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-favorite-btn:hover {
+  background: #2a5298;
+  transform: translateY(-2px);
+}
+
+.add-favorite-btn.added {
+  background: #4CAF50;
+  pointer-events: none;
+}
+
+.add-favorite-btn.added:hover {
+  background: #45a049;
 }
